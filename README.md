@@ -126,7 +126,8 @@ select name "employeeName" from employee;
 
 #### Add a foreign key during the foreign table is being created
 ```sql 
-create table department (id not null primary key auto_increment, deptName varchar(200), cid int, foreign key(cid) references employee(id));
+create table department (id not null primary key auto_increment, deptName varchar(200), cid int,
+foreign key(cid) references employee(id));
 ```
 
 #### Add a foreign key after the foreign table is created
