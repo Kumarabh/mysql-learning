@@ -3,20 +3,21 @@
 
 ---------------------------------------------- Mysql configuration on docker
 
-
+### Pull mysql image
 ``` docker pull mysql/mysql-server:latest ```
 
+### Run mysql image
 ``` docker run -d --name=mysql-container -p 3306:3306 mysql/mysql-server ```
 
- Copy password 
+### Copy password 
 ``` docker logs mysql-container ```
 
-- For EMPTY PASSWORD CONTAINER -> 
+### For EMPTY PASSWORD CONTAINER -> 
 ``` docker logs mysql-container 2>&1 | grep GENERATED ```
 
 ``` docker exec -it mysql-container sh ```
 
-- login to mysql
+### login to mysql
 ``` cd var/lib ```
 ``` mysql -u root -p ```
 
@@ -25,77 +26,77 @@
 
 
 
------------------------------------------------- COMMANDS
+## COMMANDS
 
-> show databases;
-> use mysql;
+``` show databases ```
+``` use mysql; ```
 
-- mysql info
-> \s
+### mysql info
+``` \s ```
 
-- create table
-> create table employee (id int not null primary key auto_increment, name varchar(255), gender varchar(255));
+### create table
+``` create table employee (id int not null primary key auto_increment, name varchar(255), gender varchar(255)); ```
 
 - single insertion
-> insert into employee (id, name, gender) values (null, "John", "Male");
+``` insert into employee (id, name, gender) values (null, "John", "Male"); ```
 
 - multiple insertion
-> insert into employee (id, name, gender) values (), ();
+``` insert into employee (id, name, gender) values (), (); ```
 
 - update 
-> update employee set gender = "Male"; // updates gender to all rows.
-> update employee set gender = "Male" where name = "John"; // updates gender of John
-> update employee set gender = "Male", city = "New Delhi" where name "John" // updates multiple columns
-
-> alter 
-- add a column
-> alter table employee add column gender varchar(255);
+``` update employee set gender = "Male"; // updates gender to all rows. ```
+``` update employee set gender = "Male" where name = "John"; // updates gender of John ```
+``` update employee set gender = "Male", city = "New Delhi" where name "John" // updates multiple columns ```
+ 
+## alter 
+### add a column
+``` alter table employee add column gender varchar(255); ```
 
 - modify column
-> alter table employee modify column customerName varchar(15)
+``` alter table employee modify column customerName varchar(15); ```
 
 - rename a column
-> alter table employee rename column gender to customerGender;
+``` alter table employee rename column gender to customerGender; ```
 
 - drop a column
-> alter table employee drop column gender;
+``` alter table employee drop column gender; ```
 
 - order by
-> select * from employee order by name asc | desc;
+``` select * from employee order by name asc | desc; ```
 
 - limit
-> select * from employee order by name asc limit 3;
+``` select * from employee order by name asc limit 3; ```
 
 - offset - ignore first n
-> select * from employee order by name asc limit 3 offset 2;
+``` select * from employee order by name asc limit 3 offset 2; ```
 
 - alias
-> select name as employeeName from employee;
-> select name "employeeName" from employee;
+``` select name as employeeName from employee; ```
+``` select name "employeeName" from employee; ```
 
 
 - add a foreign key during the foreign table is being created
-> create table department (id not null primary key auto_increment, deptName varchar(200), cid int, foreign key(cid) references employee(id)); 
+``` create table department (id not null primary key auto_increment, deptName varchar(200), cid int, foreign key(cid) references employee(id)); ```
 
 - add a foreign key after the foreign table is created
-> create table department (id not null primary key auto_increment, deptName varchar(200));
-> alter table add column cid int;
-> alter table department add constraint fk_employee01 foreign key (cid) references customer(id); OR alter table department add foreign key(cid) references customer(id);
+``` create table department (id not null primary key auto_increment, deptName varchar(200)); ```
+``` alter table add column cid int; ```
+``` alter table department add constraint fk_employee01 foreign key (cid) references customer(id); OR alter table department add foreign key(cid) references customer(id); ```
 
 - drop foreign key
-> alter table department drop foreign key [constraint_name]
+``` alter table department drop foreign key [constraint_name] ```
 
 - join multiple tables - fetch data from multiple tables
 
 - normal join ( without alias )
-> SELECT employee.name, employee.city, department.name 
-  FROM employee, department
-  WHERE employee.id = department.eid
+``` SELECT employee.name, employee.city, department.name ```
+  ```FROM employee, department```
+  ```WHERE employee.id = department.eid ```
 
 - normal join ( with alias )
-> SELECT e.name, e.city, d.name 
-  FROM employee e, department d
-  WHERE e.id = d.eid
+``` SELECT e.name, e.city, d.name ```
+ ``` FROM employee e, department d ```
+ ``` WHERE e.id = d.eid  ```
 
 
 - functions
