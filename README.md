@@ -138,14 +138,12 @@ alter table department drop foreign key [constraint_name]
 
 #### JOIN TABLES - FETCH DATA FROM MULTIPLE TABLES
 #### Normal join
-without alias
 ```sql
 SELECT employee.name, employee.city, department.name
 FROM employee, department
 WHERE employee.id = department.eid
 ```
 
-with alias
 ```sql  
 SELECT e.name, e.city, d.name
 FROM employee e, department d
@@ -160,6 +158,10 @@ select sum(salary) from employee where city = "New Delhi"; // total salary goes 
 ```
 
 #### Avg
+```sql 
+select avg(salary) from employee where city = "New Delhi"; // average salary goes to new delhi employees
+```
+
 #### Count
 ```sql 
 select count(name) from employee where city = "New Delhi"; // total count of employees from New Delhi location;
