@@ -22,7 +22,9 @@
 ``` mysql -u root -p ```
 
 #### Change root password
-```sql ALTER USER 'root'@'localhost' IDENTIFIED BY '[newpassword]'; ```
+```sql 
+ALTER USER 'root'@'localhost' IDENTIFIED BY '[newpassword]';
+```
 
 
 
