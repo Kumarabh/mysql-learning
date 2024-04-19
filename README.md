@@ -3,7 +3,7 @@
 
 ---------------------------------------------- Mysql configuration on docker
 
-### Pull mysql image
+#### Pull mysql image
 ``` docker pull mysql/mysql-server:latest ```
 
 ### Run mysql image
