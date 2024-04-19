@@ -112,18 +112,28 @@ select name "employeeName" from employee;
 ```
 
 
-#### Add a foreign key during the foreign table is being created
+#### CREATE FOREIGN KEY
+during table creation
 ```sql 
 create table department (id not null primary key auto_increment, deptName varchar(200), cid int,
 foreign key(cid) references employee(id));
 ```
 
-#### Add a foreign key after the foreign table is created
+#### CREATE FOREIGN KEY
+after table is created
 ```sql 
 create table department (id not null primary key auto_increment, deptName varchar(200)); 
 alter table add column cid int;
+OR 
+```
+with constraint
+```sql
 alter table department add constraint fk_employee01 foreign key (cid) references customer(id);
-OR alter table department add foreign key(cid) references customer(id); 
+```
+
+without constraint
+```sql
+alter table department add foreign key(cid) references customer(id); 
 ```
 
 #### Drop foreign key
@@ -131,16 +141,18 @@ OR alter table department add foreign key(cid) references customer(id);
 alter table department drop foreign key [constraint_name]
  ```
 
-#### Join multiple tables - fetch data from multiple tables
+#### JOIN TABLES 
+fetch data from multiple tables
 
-#### Normal join ( without alias )
+#### Normal join
+without alias
 ```sql
 SELECT employee.name, employee.city, department.name
 FROM employee, department
 WHERE employee.id = department.eid
 ```
 
-#### Normal join ( with alias )
+with alias
 ```sql  
 SELECT e.name, e.city, d.name
 FROM employee e, department d
