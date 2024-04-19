@@ -1,7 +1,7 @@
 ## INSTALLATION GUIDE: https://www.cyberciti.biz/faq/how-to-install-docker-on-amazon-linux-2/
 
 
-## Mysql configuration on docker
+#### Mysql configuration on docker
 
 #### Pull mysql image
 ```sql  
@@ -36,7 +36,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '[newpassword]';
 
 
 
-## COMMANDS
+#### COMMANDS
 
 ```sql 
 show databases
@@ -75,7 +75,7 @@ update employee set gender = "Male" where name = "John"; // updates gender of Jo
 update employee set gender = "Male", city = "New Delhi" where name "John" // updates multiple columns
 ```
  
-## Alter table
+#### Alter table
 #### Add a column
 ```sql 
 alter table employee add column gender varchar(255);
@@ -154,7 +154,7 @@ WHERE e.id = d.eid
 ```
 
 
-## Functions
+#### Functions
 #### Sum
 ```sql 
 select sum(salary) from employee where city = "New Delhi"; // total salary goes to new delhi employees
@@ -221,7 +221,7 @@ FLUSH PRIVILEGES;   // to apply all changes
 
 ````
 
-## NODE JS connection
+#### NODE JS connection
 
 ```js
 // app.ts
@@ -247,7 +247,7 @@ export {connectDB};
 
 
 
-## PRIVILLAGES
+#### PRIVILLAGES
 Mxl::8AVvn837.?wvh6?J;3*z+nh93Cw
 
 #### Optional
@@ -270,7 +270,7 @@ FLUSH PRIVILEGES;
 
 
 
-## Expanding the ESLint configuration
+#### Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
