@@ -19,7 +19,9 @@ docker logs mysql-container
  ```
 
 #### For empty password container
-``` docker logs mysql-container 2>&1 | grep GENERATED ```
+```sql 
+docker logs mysql-container 2>&1 | grep GENERATED
+```
 
 ```sql  
 docker exec -it mysql-container sh
