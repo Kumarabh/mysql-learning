@@ -207,8 +207,29 @@ create procedure CreateUserTable()
 DELIMITER ;
  call CreateUserTable();
 ```
+#### LIST PROCEDURE
+```sql
+show procedure status where db = "db5";
+```
 
+#### CREATE PROCEDURE WITH PARAMETER
+```sql
+delimiter //
+create procedure COUNT_BY_LAST_NAME(IN last_name, OUT count);
+begin
+select count(*) into count from customers lastName = last_name;
+end
+delimiter ;
 
+call COUNT_BY_LAST_NAME('Smith', @Result);
+select @Result;
+
+```
+
+#### DROP PROCEDURE
+```sql
+drop procedure PROCEDURE_NAME
+```
 
 #### CREATE USER 'admin' PASSWORD 'admin'
 ````sql
