@@ -20,7 +20,7 @@
 ``` cd var/lib ```
 ``` mysql -u root -p ```
 
-- Change root password
+### Change root password
 ``` ALTER USER 'root'@'localhost' IDENTIFIED BY '[newpassword]'; ```
 
 
