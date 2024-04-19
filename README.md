@@ -247,7 +247,6 @@ export {connectDB};
 
 
 #### PRIVILLAGES
-Mxl::8AVvn837.?wvh6?J;3*z+nh93Cw
 
 #### Optional
 Check the list of users
