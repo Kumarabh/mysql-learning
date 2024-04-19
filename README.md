@@ -99,33 +99,33 @@
  ``` WHERE e.id = d.eid  ```
 
 
-- functions
-> sum
-- select sum(salary) from employee where city = "New Delhi"; // total salary goes to new delhi employees
+## functions
+### sum
+``` select sum(salary) from employee where city = "New Delhi"; // total salary goes to new delhi employees ```
 
-> avg
-> count
-- select count(name) from employee where city = "New Delhi"; // total count of employees from New Delhi location;
-- select count(gender) from employee;
+### avg
+### count
+``` select count(name) from employee where city = "New Delhi"; // total count of employees from New Delhi location; ```
+``` select count(gender) from employee; ```
 
-- string functions
-> length("str")
-> concate(str1, str2)
-> lcase(str)
-> ucase(str)
-> substring(str, start, length)
-> trim(str)
+### string functions
+``` length("str") ```
+``` concate(str1, str2) ```
+``` lcase(str) ```
+``` ucase(str) ```
+``` substring(str, start, length) ```
+``` trim(str) ```
 
-- more functions
-> database()
-> version()
-> user()
-- select DATABASE() "DB", VERSION() "version" USER() "user";
+### more functions
+``` database() ```
+``` version() ```
+``` user() ```
+``` select DATABASE() "DB", VERSION() "version" USER() "user"; ```
 
-- math functions
-> sin
-> cos
-> tan
+### math functions
+``` sin ```
+``` cos ```
+``` tan ```
 
 - CREATE PROCEDURE
 > delimiter //
