@@ -4,24 +4,24 @@
 ---------------------------------------------- Mysql configuration on docker
 
 
-> docker pull mysql/mysql-server:latest
+``` docker pull mysql/mysql-server:latest ```
 
-> docker run -d --name=mysql-container -p 3306:3306 mysql/mysql-server
+``` docker run -d --name=mysql-container -p 3306:3306 mysql/mysql-server ```
 
-- Copy password 
-> docker logs mysql-container 
+ Copy password 
+``` docker logs mysql-container ```
 
 - For EMPTY PASSWORD CONTAINER -> 
-> docker logs mysql-container 2>&1 | grep GENERATED
+``` docker logs mysql-container 2>&1 | grep GENERATED ```
 
-> docker exec -it mysql-container sh
+``` docker exec -it mysql-container sh ```
 
 - login to mysql
-> cd var/lib
-> mysql -u root -p 
+``` cd var/lib ```
+``` mysql -u root -p ```
 
 - Change root password
-> ALTER USER 'root'@'localhost' IDENTIFIED BY '[newpassword]';
+``` ALTER USER 'root'@'localhost' IDENTIFIED BY '[newpassword]'; ```
 
 
 
