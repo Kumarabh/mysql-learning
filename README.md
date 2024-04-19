@@ -151,7 +151,7 @@
 
 ```` FLUSH PRIVILEGES;   // to apply all changes ````
 
-
+```
 // app.ts
 import mysql from 'mysql2';
 
@@ -169,7 +169,7 @@ const connectDB = async() => {
 }
 
 export {connectDB};
-
+```
 
 
 
