@@ -196,13 +196,15 @@ select DATABASE() "DB", VERSION() "version" USER() "user";
 delimiter //
 ```
 
-```sql 
+```sql
+DELIMITER //
 create procedure CreateUserTable()
   begin
   create table if not exists customer( customerId int, customerName varchar(255) );
   insert into customer values (101, "John Doe");
   select * from customer;
-  end // 
+  end //
+DELIMITER ;
  call CreateUserTable();
 ```
 
