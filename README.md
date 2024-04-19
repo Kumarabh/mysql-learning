@@ -3,25 +3,25 @@
 
 ---------------------------------------------- Mysql configuration on docker
 
-> Pull mysql image
+### Pull mysql image
 ``` docker pull mysql/mysql-server:latest ```
 
-> Run mysql image
+### Run mysql image
 ``` docker run -d --name=mysql-container -p 3306:3306 mysql/mysql-server ```
 
-> Copy password 
+### Copy password 
 ``` docker logs mysql-container ```
 
-> For EMPTY PASSWORD CONTAINER -> 
+### For EMPTY PASSWORD CONTAINER -> 
 ``` docker logs mysql-container 2>&1 | grep GENERATED ```
 
 ``` docker exec -it mysql-container sh ```
 
-> login to mysql
+### login to mysql
 ``` cd var/lib ```
 ``` mysql -u root -p ```
 
-> Change root password
+### Change root password
 ``` ALTER USER 'root'@'localhost' IDENTIFIED BY '[newpassword]'; ```
 
 
