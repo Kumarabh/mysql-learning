@@ -200,32 +200,46 @@ delimiter //
 
 ```sql
 DELIMITER //
-create procedure CreateUserTable()
-  begin
-  create table if not exists customer( customerId int, customerName varchar(255) );
-  insert into customer values (101, "John Doe");
-  select * from customer;
-  end //
+create procedure CREATE_CUSTOMER ()
+begin
+create table customer (customerId int primary key auto_increment, customerName varchar(255));
+insert into customer values (null, "John Doe");
+insert into customer values (null, "James Smith");
+insert into customer values (null, "David Doe");
+insert into customer values (null, "Elenor Shellstrop");
+insert into customer values (null, "Gustavo Gaviria");
+end//
+
+```
+```sql
 DELIMITER ;
+```
+```sql
  call CreateUserTable();
 ```
-#### LIST PROCEDURE
-```sql
-show procedure status where db = "db5";
-```
+
 
 #### CREATE PROCEDURE WITH PARAMETER
 ```sql
 delimiter //
-create procedure COUNT_BY_LAST_NAME(IN last_name, OUT count);
+```
+```sql
+create procedure COUNT_BY_LAST_NAME(IN last_name varchar(255), OUT count int);
 begin
-select count(*) into count from customers lastName = last_name;
+select count(*) into count from customer where customerName like concat('%', last_name, '%');
 end //
 delimiter ;
 
 call COUNT_BY_LAST_NAME('Smith', @Result);
 select @Result;
+```
+```sql
+delimiter ;
+```
 
+#### LIST PROCEDURE
+```sql
+show procedure status where db = "db5";
 ```
 
 #### DROP PROCEDURE
