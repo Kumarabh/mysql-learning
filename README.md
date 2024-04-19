@@ -1,7 +1,7 @@
 ## INSTALLATION GUIDE: https://www.cyberciti.biz/faq/how-to-install-docker-on-amazon-linux-2/
 
 
----------------------------------------------- Mysql configuration on docker
+## Mysql configuration on docker
 
 #### Pull mysql image
 ``` docker pull mysql/mysql-server:latest ```
@@ -12,7 +12,7 @@
 #### Copy password 
 ``` docker logs mysql-container ```
 
-#### For EMPTY PASSWORD CONTAINER -> 
+#### For EMPTY PASSWORD CONTAINER
 ``` docker logs mysql-container 2>&1 | grep GENERATED ```
 
 ``` docker exec -it mysql-container sh ```
