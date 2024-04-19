@@ -17,7 +17,7 @@
 
 ``` docker exec -it mysql-container sh ```
 
-#### login to mysql
+#### Login to mysql
 ``` cd var/lib ```
 ``` mysql -u root -p ```
 
@@ -31,84 +31,84 @@
 ``` show databases ```
 ``` use mysql; ```
 
-#### mysql info
+#### Mysql info
 ``` \s ```
 
-#### create table
+#### Create table
 ``` create table employee (id int not null primary key auto_increment, name varchar(255), gender varchar(255)); ```
 
-#### single insertion
+#### Single insertion
 ``` insert into employee (id, name, gender) values (null, "John", "Male"); ```
 
-#### multiple insertion
+#### Multiple insertion
 ``` insert into employee (id, name, gender) values (), (); ```
 
-#### update 
+#### Update 
 ``` update employee set gender = "Male"; // updates gender to all rows. ```
 ``` update employee set gender = "Male" where name = "John"; // updates gender of John ```
 ``` update employee set gender = "Male", city = "New Delhi" where name "John" // updates multiple columns ```
  
-## alter 
-#### add a column
+## Alter table
+#### Add a column
 ``` alter table employee add column gender varchar(255); ```
 
-#### modify column
+#### Modify column
 ``` alter table employee modify column customerName varchar(15); ```
 
-#### rename a column
+#### Rename a column
 ``` alter table employee rename column gender to customerGender; ```
 
-#### drop a column
+#### Drop a column
 ``` alter table employee drop column gender; ```
 
-#### order by
+#### Order by
 ``` select * from employee order by name asc | desc; ```
 
-#### limit
+#### Limit
 ``` select * from employee order by name asc limit 3; ```
 
-#### offset - ignore first n
+#### Offset - ignore first n
 ``` select * from employee order by name asc limit 3 offset 2; ```
 
-#### alias
+#### Alias
 ``` select name as employeeName from employee; ```
 ``` select name "employeeName" from employee; ```
 
 
-#### add a foreign key during the foreign table is being created
+#### Add a foreign key during the foreign table is being created
 ``` create table department (id not null primary key auto_increment, deptName varchar(200), cid int, foreign key(cid) references employee(id)); ```
 
-#### add a foreign key after the foreign table is created
+#### Add a foreign key after the foreign table is created
 ``` create table department (id not null primary key auto_increment, deptName varchar(200)); ```
 ``` alter table add column cid int; ```
 ``` alter table department add constraint fk_employee01 foreign key (cid) references customer(id); OR alter table department add foreign key(cid) references customer(id); ```
 
-#### drop foreign key
+#### Drop foreign key
 ``` alter table department drop foreign key [constraint_name] ```
 
-#### join multiple tables - fetch data from multiple tables
+#### Join multiple tables - fetch data from multiple tables
 
-#### normal join ( without alias )
+#### Normal join ( without alias )
 ``` SELECT employee.name, employee.city, department.name ```
   ```FROM employee, department```
   ```WHERE employee.id = department.eid ```
 
-#### normal join ( with alias )
+#### Normal join ( with alias )
 ``` SELECT e.name, e.city, d.name ```
  ``` FROM employee e, department d ```
  ``` WHERE e.id = d.eid  ```
 
 
-## functions
-#### sum
+## Functions
+#### Sum
 ``` select sum(salary) from employee where city = "New Delhi"; // total salary goes to new delhi employees ```
 
-#### avg
-#### count
+#### Avg
+#### Count
 ``` select count(name) from employee where city = "New Delhi"; // total count of employees from New Delhi location; ```
 ``` select count(gender) from employee; ```
 
-#### string functions
+#### String functions
 ``` length("str") ```
 ``` concate(str1, str2) ```
 ``` lcase(str) ```
@@ -116,13 +116,13 @@
 ``` substring(str, start, length) ```
 ``` trim(str) ```
 
-#### more functions
+#### More functions
 ``` database() ```
 ``` version() ```
 ``` user() ```
 ``` select DATABASE() "DB", VERSION() "version" USER() "user"; ```
 
-#### math functions
+#### Math functions
 ``` sin ```
 ``` cos ```
 ``` tan ```
@@ -176,15 +176,15 @@ export {connectDB};
 ## PRIVILLAGES
 Mxl::8AVvn837.?wvh6?J;3*z+nh93Cw
 
-#### optional
-check the list of users
+#### Optional
+Check the list of users
 
 ```
 use mysql; 
 select user from user;
 ```
 
-#### create a user for connection
+#### Create a user for connection
 
 ```
 CREATE USER 'dbeaver'@'%' IDENTIFIED BY 'dbeaver';
