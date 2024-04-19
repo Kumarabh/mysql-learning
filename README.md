@@ -112,38 +112,31 @@ select name "employeeName" from employee;
 ```
 
 
-#### CREATE FOREIGN KEY
-during table creation
+#### CREATE FOREIGN KEY - DURING TABLE CREATION
 ```sql 
 create table department (id not null primary key auto_increment, deptName varchar(200), cid int,
 foreign key(cid) references employee(id));
 ```
 
-#### CREATE FOREIGN KEY
-after table is created
+#### CREATE FOREIGN KEY - AFTER TABLE IS CREATED
 ```sql 
 create table department (id not null primary key auto_increment, deptName varchar(200)); 
 alter table add column cid int;
-OR 
-```
-with constraint
-```sql
-alter table department add constraint fk_employee01 foreign key (cid) references customer(id);
 ```
 
-without constraint
 ```sql
-alter table department add foreign key(cid) references customer(id); 
+alter table department add constraint fk_employee01 foreign key (cid) references customer(id); // WITH CONSTRAINT
+```
+```sql
+alter table department add foreign key(cid) references customer(id); // WITHOUT CONSTRAINT
 ```
 
-#### Drop foreign key
+#### DROP FOREIGN KEY
 ```sql 
 alter table department drop foreign key [constraint_name]
  ```
 
-#### JOIN TABLES 
-fetch data from multiple tables
-
+#### JOIN TABLES - FETCH DATA FROM MULTIPLE TABLES
 #### Normal join
 without alias
 ```sql
@@ -175,7 +168,7 @@ select count(name) from employee where city = "New Delhi"; // total count of emp
 select count(gender) from employee;
 ```
 
-#### String functions
+#### STRING FUNCTIONS
 ```sql 
 length("str")
 concate(str1, str2)
@@ -185,7 +178,7 @@ substring(str, start, length)
 trim(str)
 ```
 
-#### More functions
+#### MORE FUNCTIONS
 ```sql 
 database()
 version()
@@ -193,7 +186,7 @@ user()
 select DATABASE() "DB", VERSION() "version" USER() "user";
 ```
 
-#### Math functions
+#### MATH FUNCTIONS
 ``` sin ```
 ``` cos ```
 ``` tan ```
@@ -215,7 +208,7 @@ create procedure CreateUserTable()
 
 
 
-#### Create User 'admin' password 'admin'
+#### CREATE USER 'admin' PASSWORD 'admin'
 ````sql
 select host, user from user;
 
@@ -227,7 +220,7 @@ FLUSH PRIVILEGES;   // to apply all changes
 
 ````
 
-#### NODE JS connection
+#### NODE JS CONNECTION
 
 ```js
 // app.ts
@@ -264,7 +257,7 @@ use mysql;
 select user from user;
 ```
 
-#### Create a user for connection
+#### CREATE A USER
 
 ```
 CREATE USER 'dbeaver'@'%' IDENTIFIED BY 'dbeaver';
