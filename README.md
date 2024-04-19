@@ -187,9 +187,11 @@ select DATABASE() "DB", VERSION() "version" USER() "user";
 ```
 
 #### MATH FUNCTIONS
-``` sin ```
-``` cos ```
-``` tan ```
+```sql 
+sin
+cos
+tan
+```
 
 #### CREATE PROCEDURE
 ```sql 
