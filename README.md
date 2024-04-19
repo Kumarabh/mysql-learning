@@ -132,8 +132,9 @@ create table department (id not null primary key auto_increment, deptName varcha
 #### Add a foreign key after the foreign table is created
 ```sql 
 create table department (id not null primary key auto_increment, deptName varchar(200)); 
-``` alter table add column cid int;
-``` alter table department add constraint fk_employee01 foreign key (cid) references customer(id); OR alter table department add foreign key(cid) references customer(id); 
+alter table add column cid int;
+alter table department add constraint fk_employee01 foreign key (cid) references customer(id);
+OR alter table department add foreign key(cid) references customer(id); 
 ```
 
 #### Drop foreign key
