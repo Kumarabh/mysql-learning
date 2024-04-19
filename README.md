@@ -138,9 +138,7 @@
  call CreateUserTable(); 
 
 
----------------------------------------------- NODE JS connection
-
-
+## NODE JS connection
 
 #### For node JS connection, We can create new user 'admin' password 'admin'
 ```` select host, user from user; ````
@@ -151,7 +149,7 @@
 
 ```` FLUSH PRIVILEGES;   // to apply all changes ````
 
-```
+```js
 // app.ts
 import mysql from 'mysql2';
 
@@ -175,32 +173,24 @@ export {connectDB};
 
 
 
-
-
-
-
-
-
---------------------------------------------------- PRIVILLAGES
-
+## PRIVILLAGES
 Mxl::8AVvn837.?wvh6?J;3*z+nh93Cw
 
-// --------------------- optional
-// check the list of users
+#### optional
+check the list of users
 
-use mysql;
+```
+use mysql; 
 select user from user;
+```
 
+#### create a user for connection
 
--- create a user for connection
-
+```
 CREATE USER 'dbeaver'@'%' IDENTIFIED BY 'dbeaver';
 GRANT ALL PRIVILEGES ON *.* TO 'dbeaver'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
-
-
-
-
+```
 
 
 
@@ -210,7 +200,7 @@ FLUSH PRIVILEGES;
 
 If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+#### Configure the top-level `parserOptions` property like this:
 
 ```js
 export default {
@@ -223,5 +213,4 @@ export default {
   },
 }
 ```
-hello
 
