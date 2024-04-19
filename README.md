@@ -3,123 +3,111 @@
 
 #### Mysql configuration on docker
 
-#### Pull mysql image
+#### PULL MYSQL IMAGE
 ```sql  
 docker pull mysql/mysql-server:latest
 ```
 
-#### Run mysql image
+#### RUN IMAGE
 ```sql
 docker run -d --name=mysql-container -p 3306:3306 mysql/mysql-server
 ```
 
-#### Copy password 
+#### COPY DEFAULT PASSWORD
 ```sql
 docker logs mysql-container
  ```
 
-#### For empty password container
+#### IF NO PASSWORD FOUND
 ```sql 
 docker logs mysql-container 2>&1 | grep GENERATED
 ```
 
+#### EXECUTE THE CONTAINER
 ```sql  
 docker exec -it mysql-container sh
 ```
 
-#### Login to mysql
+#### LOGIN
 ```sql
 cd var/lib
 mysql -u root -p
 ```
 
-#### Change root password
+#### CHANGE ROOT USER PASSWORD
 ```sql 
 ALTER USER 'root'@'localhost' IDENTIFIED BY '[newpassword]';
 ```
 
-
-
-#### COMMANDS
+#### SQL COMMANDS
 
 ```sql 
 show databases
-```
-
-```sql 
 use mysql;
+\s // MYSQL INFORMATION
 ```
 
-#### Mysql info
-```sql 
-\s
-```
-
-#### Create table
+#### CREATE TABLE
 ```sql 
 create table employee (id int not null primary key auto_increment, name varchar(255), gender varchar(255));
 ```
 
-#### Single insertion
+#### INSERT SINGLE RECORD
 ```sql 
 insert into employee (id, name, gender) values (null, "John", "Male");
 ```
 
-#### Multiple insertion
+#### INSERT MULTIPLE RECORDS
 ```sql 
 insert into employee (id, name, gender) values (), ();
 ```
 
-#### Update 
+#### UPDATE RECORD 
 ```sql 
 update employee set gender = "Male"; // updates gender to all rows.
-```
-```sql 
 update employee set gender = "Male" where name = "John"; // updates gender of John
 update employee set gender = "Male", city = "New Delhi" where name "John" // updates multiple columns
 ```
  
-#### Alter table
-#### Add a column
+#### ALTER TABLE
+#### ADD COLUMN
 ```sql 
 alter table employee add column gender varchar(255);
 ```
 
-#### Modify column
+#### MODIFY COLUMN
 ```sql 
 alter table employee modify column customerName varchar(15);
 ```
 
-#### Rename a column
+#### RENAME COLUMN
 ```sql
 alter table employee rename column gender to customerGender; 
 ```
 
-#### Drop a column
+#### DROP COLUMN
 ```sql 
 alter table employee drop column gender;
 ```
 
-#### Order by
+#### ORDER BY
 ```sql 
 select * from employee order by name asc | desc;
  ```
 
-#### Limit
+#### LIMIT
 ```sql 
 select * from employee order by name asc limit 3;
 ```
 
-#### Offset - ignore first n
+#### OFFSET - ignore first n
 ```sql 
 select * from employee order by name asc limit 3 offset 2;
  ```
 
-#### Alias
+#### ALIAS
 ```sql 
 select name as employeeName from employee;
- ```
-```sql 
 select name "employeeName" from employee;
 ```
 
