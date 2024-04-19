@@ -28,8 +28,10 @@ docker exec -it mysql-container sh
 ```
 
 #### Login to mysql
-``` cd var/lib ```
-``` mysql -u root -p ```
+```sql
+cd var/lib
+mysql -u root -p
+```
 
 #### Change root password
 ```sql 
