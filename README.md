@@ -18,7 +18,7 @@ docker run -d --name=mysql-container -p 3306:3306 mysql/mysql-server
 docker logs mysql-container
  ```
 
-#### For EMPTY PASSWORD CONTAINER
+#### For empty password container
 ``` docker logs mysql-container 2>&1 | grep GENERATED ```
 
 ```sql  
