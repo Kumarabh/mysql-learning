@@ -37,13 +37,13 @@
 ### create table
 ``` create table employee (id int not null primary key auto_increment, name varchar(255), gender varchar(255)); ```
 
-- single insertion
+### single insertion
 ``` insert into employee (id, name, gender) values (null, "John", "Male"); ```
 
-- multiple insertion
+### multiple insertion
 ``` insert into employee (id, name, gender) values (), (); ```
 
-- update 
+### update 
 ``` update employee set gender = "Male"; // updates gender to all rows. ```
 ``` update employee set gender = "Male" where name = "John"; // updates gender of John ```
 ``` update employee set gender = "Male", city = "New Delhi" where name "John" // updates multiple columns ```
@@ -52,48 +52,48 @@
 ### add a column
 ``` alter table employee add column gender varchar(255); ```
 
-- modify column
+### modify column
 ``` alter table employee modify column customerName varchar(15); ```
 
-- rename a column
+### rename a column
 ``` alter table employee rename column gender to customerGender; ```
 
-- drop a column
+### drop a column
 ``` alter table employee drop column gender; ```
 
-- order by
+### order by
 ``` select * from employee order by name asc | desc; ```
 
-- limit
+### limit
 ``` select * from employee order by name asc limit 3; ```
 
-- offset - ignore first n
+### offset - ignore first n
 ``` select * from employee order by name asc limit 3 offset 2; ```
 
-- alias
+### alias
 ``` select name as employeeName from employee; ```
 ``` select name "employeeName" from employee; ```
 
 
-- add a foreign key during the foreign table is being created
+### add a foreign key during the foreign table is being created
 ``` create table department (id not null primary key auto_increment, deptName varchar(200), cid int, foreign key(cid) references employee(id)); ```
 
-- add a foreign key after the foreign table is created
+### add a foreign key after the foreign table is created
 ``` create table department (id not null primary key auto_increment, deptName varchar(200)); ```
 ``` alter table add column cid int; ```
 ``` alter table department add constraint fk_employee01 foreign key (cid) references customer(id); OR alter table department add foreign key(cid) references customer(id); ```
 
-- drop foreign key
+### drop foreign key
 ``` alter table department drop foreign key [constraint_name] ```
 
-- join multiple tables - fetch data from multiple tables
+### join multiple tables - fetch data from multiple tables
 
-- normal join ( without alias )
+### normal join ( without alias )
 ``` SELECT employee.name, employee.city, department.name ```
   ```FROM employee, department```
   ```WHERE employee.id = department.eid ```
 
-- normal join ( with alias )
+### normal join ( with alias )
 ``` SELECT e.name, e.city, d.name ```
  ``` FROM employee e, department d ```
  ``` WHERE e.id = d.eid  ```
