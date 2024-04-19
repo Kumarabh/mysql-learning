@@ -129,27 +129,27 @@
 
 #### CREATE PROCEDURE
 ``` delimiter // ```
-``` create procedure CreateUserTable() 
+``` create procedure CreateUserTable() ```
   begin
   create table if not exists customer( customerId int, customerName varchar(255) );
   insert into customer values (101, "John Doe");
   select * from customer;
-  end // ```
-``` call CreateUserTable(); ``` 
+  end // 
+ call CreateUserTable(); 
 
 
 ---------------------------------------------- NODE JS connection
 
 
 
-- For node JS connection, We can create new user 'admin' password 'admin'
-> select host, user from user;
+#### For node JS connection, We can create new user 'admin' password 'admin'
+```` select host, user from user; ````
 
-> CREATE USER 'admin'@'%' IDENTIFIED BY 'admin';   // Create a new user account with a desired username and password:
+```` CREATE USER 'admin'@'%' IDENTIFIED BY 'admin';   // Create a new user account with a desired username and password: ````
 
-> GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%';   // Grant appropriate privileges to the new user account:
+```` GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%';   // Grant appropriate privileges to the new user account: ````
 
-> FLUSH PRIVILEGES;   // to apply all changes
+```` FLUSH PRIVILEGES;   // to apply all changes ````
 
 
 // app.ts
